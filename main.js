@@ -1,20 +1,14 @@
-// cria referência ao form e aos elementos de resposta (pelo seu id)
+// cria referẽncia ao form e ao elemento h3 (onde será exibida a resposta)
 const frm = document.querySelector("form");
-const resp1 = document.querySelector("#outResp1");
-const resp2 = document.querySelector("#outResp2");
-const resp3 = document.querySelector("#outResp3");
+const resp = document.querySelector("h3");
 
+// cria um "ouvinte" de evento, acionado quando o botão submi for clicado
+frm.addEventListener("submit", (e) => {
+    const quilo = Number(frm.InQuilo.value); //obtém conteúdo dos campos
+    const consumo = Number(rm.inConsumo.value);
 
-frm.addEventListener("submit", (e) =>{
-    const veiculo =frm.inVeiculo.value;
-    const preco = Number(frm.inpreco.value);
+    const valor = (quilo / 1000) * consumo; // calcula valor a ser pago
+    resp.innerText = `Valor a pagar: R$ ${valor.toFixed(2)}`; // exibe resposta
 
-    const entrada = preco * 0.50;
-    const parcela = (preco * 0.50) / 12;
-
-    resp1.innerText = `Promoção : ${veiculo}`;
-    resp2.innerText = `Entrada de R$ : ${entrada.toFixed(2)}`;
-    resp3.innerText = `+12x de R$ : ${parcela.toFixed(2)}`;
-
-    e.preventDefanult();
-})
+  e.preventDefault();           // evita envio do form
+});
