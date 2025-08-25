@@ -1,14 +1,19 @@
 
-const frm = document.querySelector("form");
-const resp = document.querySelector("h3");
+const frm = document.querySelector("form")
+const resp1 = document.querySelector("loutMedicamento")
+const resp2 = document.querySelector("#out Promocao")
 
 
 frm.addEventListener("submit", (e) => {
-const quilo = Number(frm.inQuilo.value);
-const consumo = Number(frm.inConsumo.value);
 
-const valor = (quilo /1000) * consumo;
-resp.innerText = `Valor a pagar: R$ $(valor.toFixed(2)}`;
+const medicamento = frm.inMedicamento.value
+const preco = Number(frm.inPreco.value)
 
-e.preventDefault();
-});
+
+const promocao = Math.floor(preco * 2)
+
+
+resp1.innerText = `Promoção de ${medicamento}`
+resp2.innerText = `Leve 2 por apenas R$ $ (promocao.toFixed(2)}`
+e.preventDefault()
+})
